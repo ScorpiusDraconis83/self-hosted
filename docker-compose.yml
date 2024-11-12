@@ -60,7 +60,7 @@ services:
       - timescale
 
   redis:
-    image: redis:6-alpine
+    image: redis:6.2-alpine
     volumes:
       - redis-volume:/data
     networks:
@@ -74,21 +74,17 @@ services:
       - POSTGRES_DB=postgres
     volumes:
       - postgres-volume:/var/lib/postgresql/data
-    ports:
-      - "9432:5432"
     networks:
       - codecov
 
   timescale:
-    image: timescale/timescaledb-ha:pg14-latest
+    image: timescale/timescaledb:latest-pg14
     environment:
       - POSTGRES_PASSWORD=testpassword
       - POSTGRES_USER=postgres
       - POSTGRES_DB=postgres
     volumes:
       - timescale-volume:/var/lib/postgresql/data
-    ports:
-      - "8432:5432"
     networks:
       - codecov
 
