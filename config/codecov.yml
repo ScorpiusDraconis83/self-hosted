@@ -15,6 +15,7 @@ setup:
   # https://docs.codecov.io/docs/configuration#section-cookie-secret
   http:
     cookie_secret: "<your-cookie-secret>"
+    cookies_domain: localhost
   timeseries:
     enabled: true
 github:
@@ -28,6 +29,7 @@ services:
   minio:
     host: minio
     port: 9000
+    auto_create_bucket: true
 # If using external storage. Comment above and uncomment below
 #    host: s3.amazonaws.com or storage.googleapis.com if using GCS
 #    bucket: <bucket-name>
